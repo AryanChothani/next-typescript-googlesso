@@ -1,14 +1,15 @@
 import { useEffect } from 'react'
 import RecipeCard from '../../app/components/blogCard'
-import { RootState } from '../../app/state/store'
+import { AppDispatch, RootState } from '../../app/state/store'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBlogs } from '../../app/state/blog.action'
 import Style from '../../styles/BlogsCard.module.scss'
+import { ThunkDispatch } from "@reduxjs/toolkit";
 
 const Blogs = () => {
 
   const { blogs } = useSelector((state: RootState) => state.blogs)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 
   useEffect(() => {
     dispatch(fetchBlogs())

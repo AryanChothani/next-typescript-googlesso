@@ -6,7 +6,7 @@ const Contentful = new ContentfulClient("blogs");
 
 export const fetchBlogs = createAsyncThunk(
     "blogs/GetAll",
-    async (searchText: string) => {
+    async () => {
         try {
             const data = await Contentful.getItems();
             return data;
