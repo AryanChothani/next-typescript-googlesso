@@ -4,12 +4,13 @@ import GoogleProvider from 'next-auth/providers/google';
 export const authOptions: import('next-auth').NextAuthOptions = {
     providers: [
         GoogleProvider({
-            clientId: "903070974765-9hmp5uq4os5m6ifl86nor05mkf0jqt7c.apps.googleusercontent.com",
-            clientSecret: "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",
+            clientId: process.env.CLIENT_ID as string,
+            clientSecret:process.env.CLIENT_SECRET as string,
         }),
     ],
+    secret: process.env.NEXTAUTH_SECRET,
     session: {
-        strategy: 'jwt',
+        strategy: 'jwt'
     },
 };
 
