@@ -4,7 +4,6 @@ import { NextComponentType } from "next";
 import { useSession } from "next-auth/react";
 
 
-
 const authRoute = (Component: NextComponentType) => {
     return (props: any) => {
         const router = useRouter();
@@ -14,7 +13,6 @@ const authRoute = (Component: NextComponentType) => {
 
         useEffect(() => {
             const checkToken = async () => {
-
                 if (!session?.user) {
                     router.replace("/");
                 } else {
